@@ -12,7 +12,7 @@
 
 # Coherence IntelliJ Plugin
 
-![Build](https://github.com/thegridman/coherence-idea/workflows/Build/badge.svg)
+![Build](https://github.com/oracle/coherence-idea-plugin/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/com.oracle.coherence.coherence-idea.svg)](https://plugins.jetbrains.com/plugin/com.oracle.coherence.coherence-idea)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/com.oracle.coherence.coherence-idea.svg)](https://plugins.jetbrains.com/plugin/com.oracle.coherence.coherence-idea)
 [![License](http://img.shields.io/badge/license-UPL%201.0-blue.svg)](https://oss.oracle.com/licenses/upl/)
