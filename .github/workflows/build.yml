@@ -132,21 +132,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      # Check out current repository to get the embedded action
+      - name: Fetch Sources
+        uses: actions/checkout@v2
+
       # Download plugin artifact provided by the previous job
       - name: Download Artifact
         uses: actions/download-artifact@v1
         with:
           name: plugin-artifact
 
-      # Run IntelliJ Plugin Verifier action using GitHub Action
-#      - name: Verify Plugin
-#        id: verify
-#        uses: ChrisCarini/intellij-platform-plugin-verifier-action@latest
-#        with:
-#          plugin-location: plugin-artifact/${{ needs.build.outputs.artifact }}
-#          ide-versions: |
-#            ideaIC:2019.3
-#            ideaIC:2020.1
+      # Run IntelliJ Plugin Verifier action using the embedded action
+      - name: Verify Plugin
+        id: verify
+        uses: ./.github/actions/intellij-platform-plugin-verifier-action
+        with:
+          plugin-location: plugin-artifact/${{ needs.build.outputs.artifact }}
+          ide-versions: |
+            ideaIC:2019.3
+            ideaIC:2020.1
 
       # Print the output of the verify step
       - name: Print Logs
