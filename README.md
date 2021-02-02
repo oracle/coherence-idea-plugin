@@ -1,6 +1,6 @@
 <!--
 
-  Copyright (c) 2020 Oracle and/or its affiliates.
+  Copyright (c) 2020, 2021 Oracle and/or its affiliates.
 
   Licensed under the Universal Permissive License v 1.0 as shown at
   https://oss.oracle.com/licenses/upl.
@@ -24,8 +24,6 @@ Features:
 
 * POF code generation for suitably annotated classes.
 
-<!-- Plugin description end -->
-
 ## Installation
 
 - Using IDE built-in plugin system:
@@ -48,18 +46,21 @@ The plugin itself does not contain a `coherence.jar` or the POF code generator, 
 will use the code generator built into the version of Coherence that the current project depends on. 
 This means that there is no need to upgrade the IntelliJ plugin for different versions of Coherence. 
 
-For full documentation on the Coherence POF code generator see **ToDo: Add Link Here**
+For full documentation on the Coherence POF code generator and using PortableType annotations
+see the official Portable Types documentation on the [Coherence site](https://coherence.community)
 
 The POF plugin is disabled by default and must be enabled for each IntelliJ project.
+Once enabled, evolvable PortableType code will be generated for suitably annotated classes as part of 
+the IntelliJ build process.
 
 * Open the IntelliJ preference pane and go to the Oracle Coherence panel under Languages & Frameworks,
   
   <kbd>Preferences</kbd> > <kbd>Languages & Frameworks</kbd> > <kbd>Oracle Coherence</kbd>
 
 * Check the `Enable POF code generation` check box.  
+                            
 
-![preferences](images/idea-preferences.png)
-
+<!-- Plugin description end -->
 
 ---
 This plugin has been created using the 

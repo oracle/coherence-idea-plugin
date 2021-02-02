@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!--
-  Copyright (c) 2020 Oracle and/or its affiliates.
+  Copyright (c) 2020, 2021 Oracle and/or its affiliates.
 
   Licensed under the Universal Permissive License v 1.0 as shown at
   https://oss.oracle.com/licenses/upl.
@@ -8,7 +8,7 @@
 <idea-plugin>
     <id>com.oracle.coherence.coherence-idea</id>
     <name>Coherence</name>
-    <vendor url="https://coherence.community/">OracleCoherence</vendor>
+    <vendor url="https://coherence.community/">Oracle Coherence</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
