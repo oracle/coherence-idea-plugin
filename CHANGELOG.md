@@ -11,6 +11,8 @@
 # coherence-idea Changelog
 
 ## [Unreleased]
+
+## [1.0.0]
 ### Added
 - Added POF code generation as part of compiling annotated Java classes
 - Initial scaffold created from [IntelliJ Platform Plugin Template](https://github.com/JetBrains/intellij-platform-plugin-template)
