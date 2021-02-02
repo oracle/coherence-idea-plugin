@@ -8,7 +8,7 @@
 <idea-plugin>
     <id>com.oracle.coherence.coherence-idea</id>
     <name>Coherence</name>
-    <vendor url="https://coherence.community/">Oracle Coherence</vendor>
+    <vendor url="https://coherence.community/">OracleCoherence</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
