@@ -11,6 +11,8 @@
 # coherence-idea Changelog
 
 ## [Unreleased]
+
+## [1.0.1]
 - Compatible with 211.*
 
 ## [1.0.0]
