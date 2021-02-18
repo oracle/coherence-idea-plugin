@@ -38,9 +38,8 @@ Features:
 
 ## Usage
 
-[NOTE]
-For full documentation on the Coherence POF code generator and using PortableType annotations
-see the official [Portable Types documentation](https://coherence.community/20.12/docs/#/docs/core/04_portable_types)
+> For full documentation on the Coherence POF code generator and using PortableType annotations
+> see the official [Portable Types documentation](https://coherence.community/20.12/docs/#/docs/core/04_portable_types)
 
 The POF code generator plugin uses the Coherence POF code generator to instrument classes tha have been annotated with
 the corresponding POF annotations. The plugin is a build service plugin that will instrument classes as part of the
