@@ -47,7 +47,7 @@ will use the code generator built into the version of Coherence that the current
 This means that there is no need to upgrade the IntelliJ plugin for different versions of Coherence. 
 
 For full documentation on the Coherence POF code generator and using PortableType annotations
-see the official Portable Types documentation on the [Coherence site](https://coherence.community)
+see the official [Portable Types documentation](https://coherence.community/20.12/docs/#/docs/core/04_portable_types)
 
 The POF plugin is disabled by default and must be enabled for each IntelliJ project.
 Once enabled, evolvable PortableType code will be generated for suitably annotated classes as part of 
