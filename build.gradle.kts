@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Oracle and/or its affiliates.
+ * Copyright (c) 2020, 2021, Oracle and/or its affiliates.
  *
  * Licensed under the Universal Permissive License v 1.0 as shown at
  * https://oss.oracle.com/licenses/upl.
@@ -39,7 +39,7 @@ repositories {
     jcenter()
 }
 dependencies {
-    testImplementation("com.oracle.coherence.ce:coherence:20.06")
+    testImplementation("com.oracle.coherence.ce:coherence:21.06")
     testImplementation("org.mockito:mockito-core:3.3.3")
 }
 
