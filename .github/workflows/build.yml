@@ -45,10 +45,10 @@ jobs:
 
       # Set up Java environment for the next steps
       - name: Setup Java
-        uses: oracle-actions/setup-java@v1
+        uses: actions/setup-java@v4
         with:
-          website: oracle.com
-          release: 17
+          distribution: zulu
+          java-version: 17
 
 #      # Setup Gradle
 #      - name: Setup Gradle
@@ -105,10 +105,10 @@ jobs:
 
       # Set up Java environment for the next steps
       - name: Setup Java
-        uses: oracle-actions/setup-java@v1
+        uses: actions/setup-java@v4
         with:
-          website: oracle.com
-          release: 17
+          distribution: zulu
+          java-version: 17
 
       # Setup Gradle
       - name: Setup Gradle
@@ -146,10 +146,10 @@ jobs:
 
       # Set up Java environment for the next steps
       - name: Setup Java
-        uses: oracle-actions/setup-java@v1
+        uses: actions/setup-java@v4
         with:
-          website: oracle.com
-          release: 17
+          distribution: zulu
+          java-version: 17
 
       # Setup Gradle
       - name: Setup Gradle
