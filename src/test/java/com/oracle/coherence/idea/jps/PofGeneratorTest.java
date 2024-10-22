@@ -19,6 +19,8 @@ import com.tangosol.io.pof.schema.annotation.internal.Instrumented;
 import com.tangosol.net.CacheFactory;
 
 import com.tangosol.util.Base;
+
+import com.oracle.bedrock.runtime.java.ClassPath;
 import org.jetbrains.jps.incremental.BinaryContent;
 import org.jetbrains.jps.incremental.CompileContext;
 import org.jetbrains.jps.incremental.CompiledClass;
@@ -40,7 +42,6 @@ import java.nio.file.Files;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
@@ -99,17 +100,19 @@ public class PofGeneratorTest
         File          dir          = Files.createTempDirectory("coherence-test").toFile();
         File          pkgDir       = new File(dir, "pof");
         File          outputFile   = new File(pkgDir, "Person.class");
-        URL           urlCoherence = CacheFactory.class.getProtectionDomain().getCodeSource().getLocation();
-        URL           urlPerson    = Person.class.getProtectionDomain().getCodeSource().getLocation();
+
+        ClassPath cpCoherence = ClassPath.ofClass(CacheFactory.class);
+        ClassPath cpPerson    = ClassPath.ofClass(Person.class);
+        ClassPath cp          = ClassPath.of(cpCoherence, cpPerson);
 
         pkgDir.mkdirs();
-        Files.copy(personClass.toPath(),outputFile.toPath());
+        Files.copy(personClass.toPath(), outputFile.toPath());
 
         CompileContext             context = mock(CompileContext.class);
         CompiledClass              compiled = new CompiledClass(outputFile, personClass, Person.class.getName(), content);
         ClassReader                reader = new ClassReader(bytes);
         ClassWriter                writer = new ClassWriter(0);
-        InstrumentationClassFinder finder = new InstrumentationClassFinder(new URL[]{urlPerson, urlCoherence});
+        InstrumentationClassFinder finder = new InstrumentationClassFinder(cp.getURLs());
 
 
         PofGenerator  generator    = new PofGenerator();
@@ -132,9 +135,9 @@ public class PofGeneratorTest
         {
         try
             {
-            URL  url  = Person.class.getProtectionDomain().getCodeSource().getLocation();
-            File dir  = new File(url.toURI());
-            return new File(dir, Person.class.getName().replaceAll("\\.", File.separator) + ".class");
+            URL  url  = Person.class.getResource("Person.class");
+            assertThat(url, is(notNullValue()));
+            return new File(url.toURI());
             }
         catch (URISyntaxException e)
             {

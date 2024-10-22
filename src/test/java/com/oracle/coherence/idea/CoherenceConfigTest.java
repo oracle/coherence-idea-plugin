@@ -26,14 +26,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class CoherenceConfigTest
     {
     @Test
-    public void shouldNotEnablePofGenerationByDefault() throws Exception
+    public void shouldNotEnablePofGenerationByDefault()
         {
         CoherenceConfig config = new CoherenceConfig();
         assertThat(config.isPofGeneratorEnabled(), is(false));
         }
 
     @Test
-    public void shouldSetPofEnabled() throws Exception
+    public void shouldSetPofEnabled()
         {
         CoherenceConfig config = new CoherenceConfig();
         config.setPofGeneratorEnabled(true);
@@ -41,7 +41,7 @@ public class CoherenceConfigTest
         }
 
     @Test
-    public void shouldApplyChanges() throws Exception
+    public void shouldApplyChanges()
         {
         CoherenceConfig changes = new CoherenceConfig();
         changes.setPofGeneratorEnabled(true);
@@ -53,7 +53,7 @@ public class CoherenceConfigTest
         }
 
     @Test
-    public void shouldCreateCopy() throws Exception
+    public void shouldCreateCopy()
         {
         CoherenceConfig config = new CoherenceConfig();
         config.setPofGeneratorEnabled(true);
@@ -77,7 +77,7 @@ public class CoherenceConfigTest
         }
 
     @Test
-    public void shouldCreateFromElement() throws Exception
+    public void shouldCreateFromElement()
         {
         Element element = new Element("coherence");
         element.setAttribute(CoherenceConfig.ATTRIBUTE_POF_ENABLED, "true");

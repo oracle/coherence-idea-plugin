@@ -9,8 +9,8 @@
 package com.oracle.coherence.idea;
 
 import com.intellij.openapi.components.PersistentStateComponent;
-import com.intellij.openapi.components.ServiceManager;
 
+import com.intellij.openapi.components.Service;
 import com.intellij.openapi.components.State;
 import com.intellij.openapi.components.Storage;
 
@@ -23,7 +23,6 @@ import org.jdom.Element;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
 import org.jetbrains.jps.model.ex.JpsElementBase;
 
 /**
@@ -31,6 +30,7 @@ import org.jetbrains.jps.model.ex.JpsElementBase;
  *
  * @author Jonathan Knight  2020.07.02
  */
+@Service
 @State(
   name = CoherenceConfig.COHERENCE_SETTINGS,
   storages = {
@@ -132,7 +132,7 @@ public class CoherenceConfig
     @Nullable
     public static CoherenceConfig getInstance(Project project)
         {
-        return ServiceManager.getService(project, CoherenceConfig.class);
+        return project.getService(CoherenceConfig.class);
         }
 
     // ----- constants ------------------------------------------------------
