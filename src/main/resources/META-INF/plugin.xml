@@ -7,7 +7,7 @@
   -->
 <idea-plugin requires-restart="false">
     <id>com.oracle.coherence.coherence-idea</id>
-    <name>Coherence</name>
+    <name>Oracle Coherence</name>
     <vendor url="https://coherence.community/">OracleCoherence</vendor>
 
     <!-- Product and plugin compatibility requirements -->
