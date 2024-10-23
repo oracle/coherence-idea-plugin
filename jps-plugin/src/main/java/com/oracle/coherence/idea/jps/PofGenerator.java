@@ -20,7 +20,6 @@ import org.jetbrains.jps.incremental.CompiledClass;
 import org.jetbrains.jps.incremental.instrumentation.BaseInstrumentingBuilder;
 import org.jetbrains.jps.incremental.messages.BuildMessage;
 import org.jetbrains.jps.incremental.messages.CompilerMessage;
-import org.jetbrains.jps.model.JpsProject;
 import org.jetbrains.org.objectweb.asm.ClassReader;
 import org.jetbrains.org.objectweb.asm.ClassWriter;
 
@@ -142,9 +141,13 @@ public class PofGenerator
     @Override
     protected boolean isEnabled(CompileContext context, ModuleChunk chunk)
         {
-        JpsProject      project = context.getProjectDescriptor().getProject();
-        CoherenceConfig config  = project.getContainer().getChild(CoherenceJpsProjectSerializer.CONFIG);
-        return config != null && config.isPofGeneratorEnabled();
+        return isEnabled(context);
+        }
+
+    private boolean isEnabled(CompileContext context)
+        {
+        CoherenceConfig config = CoherenceConfig.getSettings(context.getProjectDescriptor().getProject());
+        return config.isPofGeneratorEnabled();
         }
 
     @Override

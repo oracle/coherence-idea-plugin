@@ -8,7 +8,7 @@
 <idea-plugin requires-restart="false">
     <id>com.oracle.coherence.coherence-idea</id>
     <name>Oracle Coherence</name>
-    <vendor url="https://coherence.community/">OracleCoherence</vendor>
+    <vendor url="https://coherence.community/">Oracle Coherence</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
@@ -19,8 +19,11 @@
         <projectService serviceImplementation="com.oracle.coherence.idea.CoherenceConfig" />
 
         <projectConfigurable instance="com.oracle.coherence.idea.CoherenceConfigurable"
-                             groupId="language" id="coherence.settings" nonDefaultProject="true"/>
+                             groupId="language"
+                             id="coherence.settings"
+                             displayName="Coherence Settings"
+                             nonDefaultProject="true"/>
 
-        <compileServer.plugin classpath="coherence-idea.jar"/>
+        <compileServer.plugin classpath="jps-plugin.jar"/>
     </extensions>
 </idea-plugin>

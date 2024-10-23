@@ -8,11 +8,13 @@
 
 package com.oracle.coherence.idea;
 
+import com.intellij.openapi.options.BaseConfigurable;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SearchableConfigurable;
 
 import com.intellij.openapi.project.Project;
 
+import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -27,6 +29,7 @@ import javax.swing.*;
  * @author Jonathan Knight  2020.07.02
  */
 public class CoherenceConfigurable
+        extends BaseConfigurable
         implements SearchableConfigurable
     {
     // ----- constructors ---------------------------------------------------
@@ -46,13 +49,25 @@ public class CoherenceConfigurable
     @Override
     public @NotNull String getId()
         {
-        return "coherence.settings";
+        return "oracle-coherence";
+        }
+
+    @Override
+    public @Nullable Runnable enableSearch(String option)
+        {
+        return null;
         }
 
     @Override
     public String getDisplayName()
         {
         return "Oracle Coherence";
+        }
+
+    @Override
+    public @Nullable @NonNls String getHelpTopic()
+        {
+        return null;
         }
 
     @Override
@@ -100,7 +115,8 @@ public class CoherenceConfigurable
 
     private CoherenceConfig getConfig()
         {
-        return CoherenceConfig.getInstance(project);
+        CoherenceConfigService service = project.getService(CoherenceConfigService.class);
+        return service.getConfig();
         }
 
     // ----- data members ---------------------------------------------------

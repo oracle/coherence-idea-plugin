@@ -10,10 +10,7 @@ package com.oracle.coherence.idea.jps;
 import com.oracle.coherence.idea.CoherenceConfig;
 import org.jdom.Element;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.jps.model.JpsElementChildRole;
 import org.jetbrains.jps.model.JpsProject;
-import org.jetbrains.jps.model.ex.JpsElementChildRoleBase;
-
 import org.jetbrains.jps.model.serialization.JpsProjectExtensionSerializer;
 
 /**
@@ -25,34 +22,25 @@ import org.jetbrains.jps.model.serialization.JpsProjectExtensionSerializer;
 public class CoherenceJpsProjectSerializer
         extends JpsProjectExtensionSerializer
     {
-    // ----- constructors ---------------------------------------------------
-
     /**
      * Create a {@link CoherenceJpsProjectSerializer}.
      */
     public CoherenceJpsProjectSerializer()
         {
-        super(CoherenceConfig.COHERENCE_CONFIG_FILE, CoherenceConfig.COHERENCE_SETTINGS);
+        super(CONFIG_FILE_NAME, NAME);
         }
-
-    // ----- JpsGlobalExtensionSerializer methods ---------------------------
 
     @Override
     public void loadExtension(@NotNull JpsProject project, @NotNull Element element)
         {
-        project.getContainer().setChild(CONFIG, new CoherenceConfig(element));
-        }
-
-    @Override
-    public void saveExtension(@NotNull JpsProject project, @NotNull Element element)
-        {
+        CoherenceConfig config  = new CoherenceConfig();
+        config.loadFrom(element);
+        project.getContainer().setChild(CoherenceConfig.ROLE, config);
         }
 
     // ----- data members ---------------------------------------------------
 
-    /**
-     * The key to the {@link CoherenceConfig} instance for a project.
-     */
-    public static final JpsElementChildRole<CoherenceConfig> CONFIG
-            = JpsElementChildRoleBase.create(CoherenceConfig.COHERENCE_SETTINGS);
+    public static final String NAME = "OracleCoherence";
+
+    public static final String CONFIG_FILE_NAME = "oracleCoherence.xml";
     }
