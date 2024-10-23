@@ -12,7 +12,6 @@ import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.sameInstance;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -24,10 +23,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class CoherenceConfigTest
     {
     @Test
-    public void shouldNotEnablePofGenerationByDefault()
+    public void shouldEnablePofGenerationByDefault()
         {
         CoherenceConfig config = new CoherenceConfig();
-        assertThat(config.isPofGeneratorEnabled(), is(false));
+        assertThat(config.isPofGeneratorEnabled(), is(true));
         }
 
     @Test
@@ -60,28 +59,4 @@ public class CoherenceConfigTest
         assertThat(copy, is(not(sameInstance(config))));
         assertThat(config.isPofGeneratorEnabled(), is(true));
         }
-
-//    @Test
-//    public void shouldGetState() throws Exception
-//        {
-//        CoherenceConfig config = new CoherenceConfig();
-//        config.setPofGeneratorEnabled(true);
-//
-//        Element state = config.getState();
-//        assertThat(state, is(notNullValue()));
-//
-//        boolean pofEnabled = state.getAttribute(CoherenceConfig.ATTRIBUTE_POF_ENABLED).getBooleanValue();
-//        assertThat(pofEnabled, is(true));
-//        }
-//
-//    @Test
-//    public void shouldCreateFromElement()
-//        {
-//        Element element = new Element("coherence");
-//        element.setAttribute(CoherenceConfig.ATTRIBUTE_POF_ENABLED, "true");
-//
-//        CoherenceConfig config = new CoherenceConfig(element);
-//        assertThat(config.isPofGeneratorEnabled(), is(true));
-//        }
-
     }
