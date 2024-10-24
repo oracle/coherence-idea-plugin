@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+  Copyright (c) 2020, 2024, Oracle and/or its affiliates.
+
+  Licensed under the Universal Permissive License v 1.0 as shown at
+  https://oss.oracle.com/licenses/upl.
+  -->
+<idea-plugin requires-restart="false">
+    <id>com.oracle.coherence.coherence-idea</id>
+    <name>Oracle Coherence</name>
+    <vendor url="https://coherence.community/">Oracle Coherence</vendor>
+
+    <!-- Product and plugin compatibility requirements -->
+    <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectService serviceImplementation="com.oracle.coherence.idea.CoherenceConfig" />
+
+        <projectConfigurable instance="com.oracle.coherence.idea.CoherenceConfigurable"
+                             groupId="language"
+                             id="coherence.settings"
+                             displayName="Coherence Settings"
+                             nonDefaultProject="true"/>
+
+        <compileServer.plugin classpath="jps-plugin.jar"/>
+    </extensions>
+</idea-plugin>
